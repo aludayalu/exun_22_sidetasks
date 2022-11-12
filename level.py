@@ -5,12 +5,16 @@ app=Flask(__name__)
 style="""
 <style>
 body {
-    background-image: linear-gradient(to left bottom, #072e69, #253790, #503bb5, #8335d3, #bc12eb);
+    background: #ebebeb;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 p {
     font-size: large;
     text-align: center;
-    margin-top: 20%;
 }
 </style>
 """
@@ -20,7 +24,7 @@ class test:
         self.id=id
 
 def base(id):
-    return style+f"<p>Hello user {id}!<br>Welcome to our site.<br>This site is currently in development.<!--3taTLNS--><p>"
+    return style+f"<div class=\"content\">Hello user {id}!<br>Welcome to our site.<br>This site is currently in development.<!--3taTLNS--></div>"
 
 @app.route("/house.ogg")
 def house():
@@ -38,4 +42,4 @@ def home():
     except:
         return base(pickle.loads(base64.b64decode(request.cookies.get("sessionid").encode())))
 
-app.run(port=5000)
+app.run(port=5000,debug=1)

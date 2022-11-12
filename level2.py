@@ -39,12 +39,10 @@ Welcome to my blog
 Some famous people
 <a href="/people/satoshi_nakamoto">Satoshi Nakamoto</a>
 <a href="/people/vitalik_buterin">Vitalik Buterin</a>
-
-Blog 1
-<!--/3G5XXpJ--->
+<!-- <a href="/robots.txt">Ignore</a> -->
 """.replace("\n","<br>")
 
 @app.route("/robots.txt")
 def code():
     return "<plaintext>"+open(__file__).read().replace("Exun{this_was_fun}","flag_here")+"</plaintext>"
-app.run(port=7777)
+app.run(port=7777,debug=1)
